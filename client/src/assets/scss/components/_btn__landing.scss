@@ -1,0 +1,15 @@
+.btn__landing {
+    background: $sand;
+    color: $mud;
+    border: .3rem solid $mud;
+    position: absolute;
+    z-index: 3;
+    font-size: $m-size;
+    top: 37rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.btn__landing:hover {
+    background: $sand;
+    color: $light-clay;
+}

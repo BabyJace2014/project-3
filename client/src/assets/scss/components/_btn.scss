@@ -1,0 +1,10 @@
+
+.btn {
+    padding: $s-size $m-size;
+    border-radius: 2rem;
+    transition: 400ms;
+    border: none;
+}
+.btn:hover {
+    cursor: pointer;
+}
