@@ -1,0 +1,29 @@
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+h1 {
+    font-size: $xl-size;
+    font-weight: 700;
+}
+h2 {
+    font-size: $l-size;
+}
+
+
+// html elements here
+
