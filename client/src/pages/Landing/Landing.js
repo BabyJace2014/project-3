@@ -9,7 +9,7 @@ class Landing extends React.Component {
                 
                 <Image src={require(`../../assets/images/tempTitle.png`)} className="temp-title" />
                 
-                <Button primary className="btn btn__landing" >Sign in or sign up with Goodreads</Button> 
+                <Button primary className="btn__landing" >Sign in or sign up with Goodreads</Button> 
                 
                 <ul className="slideshow">
                     <li>

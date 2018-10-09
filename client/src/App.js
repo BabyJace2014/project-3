@@ -18,7 +18,6 @@ class App extends Component {
                         <Route exact path="/club" component={Club}/>
                         <Route exact path="/create" component={Create} />
                         <Route exact path="/join" component={Join} />
-                        <Route exact path="/landing" component={Landing} />
                         <Route exact path="/profile" component={Profile} />
                     </Switch>
                 </div>
