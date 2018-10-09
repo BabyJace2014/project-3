@@ -24,6 +24,20 @@ h2 {
     font-size: $l-size;
 }
 
+Button {
+    padding: $s-size $m-size;
+    border-radius: 2rem;
+    transition: 400ms;
+    border: none;
+    outline: none;
+}
+Button:hover {
+    cursor: pointer;
+    outline: none;
+}
+Button:active {
+    outline: none;
+}
 
 // html elements here
 

@@ -10,6 +10,7 @@
     transform: translateX(-50%);
 }
 .btn__landing:hover {
-    background: $sand;
-    color: $light-clay;
+    background: lighten($sand, 15%);
+    color: lighten($mud, 15%);
+    border: .2rem solid $mud;
 }
