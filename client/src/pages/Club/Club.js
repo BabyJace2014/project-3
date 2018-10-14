@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navigation from "../../react-components/Navigation";
+import Navigation from "../../components/Navigation";
 
 class Club extends React.Component {
 
