@@ -2,11 +2,13 @@
     background: $sand;
     color: $mud;
     border: .3rem solid $mud;
-    position: absolute;
+/*    position: absolute; */
     z-index: 3;
     font-size: $m-size;
-    top: 37rem;
-    left: 50%;
+/*    top: 37rem; */
+/*    left: 50%; */
+    margin-right: auto;
+    margin-left: auto;
     transform: translateX(-50%);
 }
 .btn__landing:hover {
