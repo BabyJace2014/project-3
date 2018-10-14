@@ -1,8 +1,16 @@
+.content_center {
+    text-align: center;
+}
+
 .temp-title {
     position: relative;
     z-index: 2;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.app__modal {
+    max-width: 450px;
 }
 
 .slideshow { 
