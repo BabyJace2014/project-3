@@ -26,11 +26,13 @@ class Landing extends React.Component {
                     </li>
                 </ul>
 
-                <Modal className="app__modal" trigger={<Button className="btn__landing">Sign In</Button>} >
+                <Modal  className="app__modal" trigger={<Button className="btn__landing">Sign In</Button>} >
+                    <Modal.Header>Sign In</Modal.Header>
                     <Login appAuth={this.props.appAuth} />
                 </Modal>
 
                 <Modal className="app__modal" trigger={<Button className="btn__landing">Sign Up</Button>} >
+                    <Modal.Header>Sign Up</Modal.Header>
                     <SignUp appAuth={this.props.appAuth} />
                 </Modal>
                 

@@ -111,6 +111,7 @@ class SignUp extends React.Component {
                                 type="text"
                                 name="firstname"
                                 placeholder='First Name'
+                                autoFocus
                                 value={data.firstname}
                                 onChange={this.onChange} />
                             { errors.firstname && <InlineError text={errors.firstname} /> }
