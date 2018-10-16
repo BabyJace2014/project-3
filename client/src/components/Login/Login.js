@@ -70,9 +70,6 @@ class Login extends React.Component {
 
         return (
             <Modal.Content>
-                <Message attached
-                        header='Sign-in to your account'
-                />
 
                 <Form className='attached fluid' onSubmit={this.onLogin}>
                 <Segment textAlign='left' size='large'>
@@ -89,6 +86,7 @@ class Login extends React.Component {
                         iconPosition="left"
                         name="email"
                         placeholder="E-mail address"
+                        autoFocus
                         value={data.email}
                         onChange={this.onChange} />
                     {errors.email && <InlineError text={errors.email} /> }

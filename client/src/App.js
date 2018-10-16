@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Club from './pages/Club';
 import Landing from './pages/Landing';
 import Logout from './components/Logout';
@@ -15,15 +15,41 @@ class App extends Component {
         this.setState( {isAuthorized: isAuth, user: authUser} )
     }
 
+    onUserUpdated = ( updatedUser ) => {
+        this.setState({ user: updatedUser });
+    }
+
     render() {
         return (
             <Router>
                 <div>
                     <Switch>
-                        <Route exact path="/club" render={()=>this.state.isAuthorized? <Club user={this.state.user} /> : <Landing/>} />
-                        <Route exact path="/profile" render={()=>this.state.isAuthorized? <Profile user={this.state.user} /> : <Landing/>} />
-                        <Route exact path="/logout" render={() => <Logout appAuth={this.appAuth} />} />
-                        <Route path="*" render={() => <Landing appAuth={this.appAuth} />} />
+                        <Route  exact path="/"
+                                render={() => <Landing appAuth={this.appAuth} />}
+                        />
+
+                        <Route  exact path="/club"
+                                render={() => this.state.isAuthorized?
+                                        <Club user={this.state.user} />
+                                    :
+                                        <Redirect to="/" />}
+                        />
+
+                        <Route  exact path="/profile"
+                                render={() => this.state.isAuthorized?
+                                        <Profile user={this.state.user}
+                                                 userUpdated={this.onUserUpdated} />
+                                    :
+                                        <Redirect to="/" />}
+                        />
+
+                        <Route  exact path="/logout"
+                                render={() => <Logout appAuth={this.appAuth} />}
+                        />
+
+                        <Route  path="*"
+                                render={() => <Redirect to="/" />}
+                        />
                     </Switch>
                 </div>
             </Router>
