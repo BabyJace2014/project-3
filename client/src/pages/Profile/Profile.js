@@ -29,7 +29,6 @@ render() {
             <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
             <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
 
-            <Link to="/logout">Logout</Link>
             <br />
             <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} />
 
