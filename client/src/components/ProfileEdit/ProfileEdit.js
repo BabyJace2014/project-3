@@ -36,7 +36,8 @@ class ProfileEdit extends React.Component {
             // we already know the number is exactly 10 characters since we passed validate()
             // so format it to look like a phone number
             const { phone } = this.state.user;
-            const formattedNbr = `(${phone.slice(0,3)}) ${phone.slice(3,6)}-${phone.slice(-4)}`;
+            let formattedNbr = phone.replace(/[^0-9]/g, "");
+            formattedNbr = `(${formattedNbr.slice(0,3)}) ${formattedNbr.slice(3,6)}-${formattedNbr.slice(-4)}`;
 
             // setState with the formatted phone number and then call saveUser to make API
             // call, as a callback, so it will execute after state is fully updated!

@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navigation from "../../components/Navigation";
+import { Link } from 'react-router-dom';
+// import Navigation from "../../components/Navigation";
 
 class Club extends React.Component {
 
 render() {
     return (
         <div>
-        <Navigation />
-        <h2>
-            Club Page
-        </h2>
+        <h2>Club Page</h2>
+        <Link to="/profile">Profile</Link>
         </div>
         
         );
