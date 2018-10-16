@@ -2,15 +2,31 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProfileEdit from "../../components/ProfileEdit";
+import CreateClub from "../../components/CreateClub";
+import API from "../../utils/API";
 
 class Profile extends React.Component {
 
 state = {
-    user: {}
+    user: {},
+    clubs: []
 }
 
 componentWillMount = () => {
-    this.setState({ user: this.props.user });
+    this.setState({ user: this.props.user }, this.loadClubs);
+}
+
+loadClubs = () => {
+    API.getUserClubs( this.state.user.email )
+        .then( res => {
+            if ( res.data ) {
+                // if we found a list of clubs, then put then in the clubs array
+                this.setState({ clubs: res.data });
+            }
+        })
+        .catch( err => {
+            console.log(err);
+        });
 }
 
 onProfileEditClose = ( updatedUser ) => {
@@ -18,18 +34,36 @@ onProfileEditClose = ( updatedUser ) => {
     this.props.userUpdated( this.state.user );
 }
 
+onCreateClubClose = ( newClub ) => {
+    if ( newClub ) {
+        this.setState({ clubs: [...this.state.clubs, newClub] });
+    }
+}
+
 render() {
+    console.log("IN PROFILE RENDER");
+    console.log(this.state.clubs);
+
     return (
         <div>
-            <h2>Profile Page</h2>
+            <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
+            <Link to="/club">Club Page</Link> <Link to="/logout">Logout</Link>
 
-            <h3>Welcome {this.state.user.firstname} {this.state.user.lastname}!</h3>
+            <br /><br/>
+            <h3>Your Profile Information:</h3>
             <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
             <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
 
-            <Link to="/logout">Logout</Link>
-            <br />
+            <br /><br />
             <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} />
+            <br /><br />
+            <CreateClub user={this.state.user} onClose={this.onCreateClubClose} />
+            <br /><br /><br />
+
+            <h3>Club's You Belong To:</h3>
+            { this.state.clubs.map( club => (
+                <p>{club.clubname}</p>
+            )) }
 
         </div>
         );
