@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProfileEdit from "../../components/ProfileEdit";
+import Navigation from "../../components/Navigation";
 
 class Profile extends React.Component {
 
@@ -21,6 +22,7 @@ onProfileEditClose = ( updatedUser ) => {
 render() {
     return (
         <div>
+            <Navigation />
             <h2>Profile Page</h2>
 
             <h3>Welcome {this.state.user.firstname} {this.state.user.lastname}!</h3>
