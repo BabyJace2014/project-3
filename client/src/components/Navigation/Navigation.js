@@ -9,11 +9,14 @@ export default class MenuExampleHeader extends Component {
 
   render() {
     const { activeItem } = this.state
-
+    
     return (
-      <Segment inverted>
-      <Menu inverted secondary>
+     
+      <Menu size='massive'>
         <Menu.Item header>APP NAME</Menu.Item>
+        <Menu.Item
+          name={this.props.display}
+         />
         <Menu.Menu position='right'>
         <Menu.Item
           name='Club Page'
@@ -38,7 +41,7 @@ export default class MenuExampleHeader extends Component {
           />
         </Menu.Menu>
       </Menu>
-      </Segment>
+      
     )
   }
 }

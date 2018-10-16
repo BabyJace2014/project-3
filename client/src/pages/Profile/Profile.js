@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import ProfileEdit from "../../components/ProfileEdit";
 import CreateClub from "../../components/CreateClub";
 import Navigation from "../../components/Navigation";
@@ -44,10 +43,11 @@ onCreateClubClose = ( newClub ) => {
 render() {
     console.log("IN PROFILE RENDER");
     console.log(this.state.clubs);
+    const name = `${this.state.user.firstname} ${this.state.user.lastname}`
 
     return (
         <div>
-            <Navigation />
+            <Navigation display={name} />
             <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
 
             <br /><br/>
