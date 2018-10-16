@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ProfileEdit from "../../components/ProfileEdit";
 import CreateClub from "../../components/CreateClub";
+import Navigation from "../../components/Navigation";
 import API from "../../utils/API";
 
 class Profile extends React.Component {
@@ -46,8 +47,8 @@ render() {
 
     return (
         <div>
+            <Navigation />
             <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
-            <Link to="/club">Club Page</Link> <Link to="/logout">Logout</Link>
 
             <br /><br/>
             <h3>Your Profile Information:</h3>
