@@ -8,7 +8,8 @@ import Profile from './pages/Profile';
 class App extends Component {
     state = {
         isAuthorized: false,
-        user: {}
+        user: {},
+        club: {}
     }
     
     appAuth = ( isAuth, authUser ) => {
@@ -17,6 +18,10 @@ class App extends Component {
 
     onUserUpdated = ( updatedUser ) => {
         this.setState({ user: updatedUser });
+    }
+
+    setClub = ( club ) => {
+        this.setState({club: club});
     }
 
     render() {
@@ -28,9 +33,10 @@ class App extends Component {
                                 render={() => <Landing appAuth={this.appAuth} />}
                         />
 
-                        <Route  exact path="/club"
+                        <Route  path="/club"
                                 render={() => this.state.isAuthorized?
-                                        <Club user={this.state.user} />
+                                        <Club user={this.state.user}
+                                              club={this.state.club} />
                                     :
                                         <Redirect to="/" />}
                         />
@@ -38,7 +44,8 @@ class App extends Component {
                         <Route  exact path="/profile"
                                 render={() => this.state.isAuthorized?
                                         <Profile user={this.state.user}
-                                                 userUpdated={this.onUserUpdated} />
+                                                 userUpdated={this.onUserUpdated}
+                                                 setClub={this.setClub} />
                                     :
                                         <Redirect to="/" />}
                         />

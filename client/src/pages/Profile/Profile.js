@@ -1,19 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ProfileEdit from "../../components/ProfileEdit";
-import CreateClub from "../../components/CreateClub";
-import Navigation from "../../components/Navigation";
-import API from "../../utils/API";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import ProfileEdit from '../../components/ProfileEdit';
+import CreateClub from '../../components/CreateClub';
+import Navigation from '../../components/Navigation';
+import ClubLink from '../../components/ClubLink';
+import API from '../../utils/API';
 
 class Profile extends React.Component {
 
 state = {
+    toClub: false,
     user: {},
     clubs: []
 }
 
 componentWillMount = () => {
-    this.setState({ user: this.props.user }, this.loadClubs);
+    this.setState({ user: this.props.user, toClub: false }, this.loadClubs);
 }
 
 loadClubs = () => {
@@ -40,8 +43,17 @@ onCreateClubClose = ( newClub ) => {
     }
 }
 
+viewClub = ( clubname ) => {
+    const clubNbr = this.state.clubs.findIndex(x => x.clubname === clubname);
+    this.props.setClub( this.state.clubs[clubNbr]);
+    this.setState({toClub: true});
+}
+
 render() {
     const name = `${this.state.user.firstname} ${this.state.user.lastname}`
+
+    if (this.state.toClub)
+        return <Redirect to="/club" />
 
     return (
         <div>
@@ -61,7 +73,9 @@ render() {
 
             <h3>Club's You Belong To:</h3>
             { this.state.clubs.map( club => (
-                <p>{club.clubname}</p>
+                <ClubLink onClick={this.viewClub} clubname={club.clubname}>
+                    {club.clubname}
+                </ClubLink>
             )) }
 
         </div>
@@ -77,7 +91,9 @@ Profile.propTypes = {
         email: PropTypes.string.isRequired
     }),
 
-    userUpdated: PropTypes.func.isRequired
+    userUpdated: PropTypes.func.isRequired,
+
+    setClub: PropTypes.func.isRequired
 }
 
 export default Profile;
