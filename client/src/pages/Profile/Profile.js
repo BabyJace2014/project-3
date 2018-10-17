@@ -41,10 +41,11 @@ onCreateClubClose = ( newClub ) => {
 }
 
 render() {
+    const name = `${this.state.user.firstname} ${this.state.user.lastname}`
 
     return (
         <div>
-            <Navigation />
+            <Navigation display={name} />
             <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
 
             <br /><br/>
