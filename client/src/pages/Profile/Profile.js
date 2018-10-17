@@ -41,8 +41,6 @@ onCreateClubClose = ( newClub ) => {
 }
 
 render() {
-    console.log("IN PROFILE RENDER");
-    console.log(this.state.clubs);
     const name = `${this.state.user.firstname} ${this.state.user.lastname}`
 
     return (
@@ -68,6 +66,7 @@ render() {
 
         </div>
         );
+
     }
 }
 

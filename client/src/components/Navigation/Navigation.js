@@ -11,7 +11,6 @@ export default class MenuExampleHeader extends Component {
     const { activeItem } = this.state
     
     return (
-     
       <Menu size='massive'>
         <Menu.Item header>APP NAME</Menu.Item>
         <Menu.Item

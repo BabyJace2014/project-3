@@ -26,8 +26,8 @@ module.exports = function(app) {
             });
     });
 
-    // POST route /club
-    //  save a new club to the db ... if it doesn't already exist
+    // GET route /club/:id
+    //  retrieve all the clubs that the id (should be email address) is a member of 
     app.get("/club/:id", (req, res) => {
         const userEmail = req.params.id;
 
