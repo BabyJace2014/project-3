@@ -12,7 +12,7 @@ export default class MenuExampleHeader extends Component {
 
     return (
       <Segment inverted>
-      <Menu inverted secondary>
+      <Menu size='massive'>
         <Menu.Item header>APP NAME</Menu.Item>
         <Menu.Menu position='right'>
         <Menu.Item

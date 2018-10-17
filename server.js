@@ -44,7 +44,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // Routes
 require("./routes/users.js")(app);
 require("./routes/clubs.js")(app);
-// require("./routes/books.js")(app);
+require("./routes/books.js")(app);
 
 // Send every other request to the React app
 app.get("*", (req, res) => {

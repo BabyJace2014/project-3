@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default {
 
@@ -25,6 +25,12 @@ export default {
     // retrieve a list of club names that a user is a member of
     getUserClubs: function ( userEmail ) {
         return axios.get("/club/" + userEmail);
+    },
+
+    // use the GoodReads API to return an array of books that 
+    //   matches the title in query
+    getBookDetails: function ( query ) {
+        return axios.post("/book/info", {query: query});
     }
 
 }
