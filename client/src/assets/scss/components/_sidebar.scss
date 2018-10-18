@@ -1,8 +1,8 @@
 
 .sidebar {
-    left: 0;
-    height: 100vh;
-    padding-left: 2rem;
+    //left: 0;
+    height: 93vh;
+    padding-left: 2rem !important;
     background: lighten($sub-gray, $amount: 35%);
 }
 .info-bar {
@@ -10,6 +10,6 @@
     border: .2rem solid #000;
     background: gray;
 }
-.grid-base {
-    height: 100% !important;
-}
+// .grid-base {
+//     height: 95% !important;
+// }
