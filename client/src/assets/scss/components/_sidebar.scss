@@ -1,15 +1,24 @@
 
 .sidebar {
-    left: 0;
-    height: 100vh;
-    padding-left: 2rem;
+    //left: 0;
+    height: 93vh;
+    padding-left: 2rem !important;
     background: lighten($sub-gray, $amount: 35%);
 }
-.info-bar {
-    height: 100%;
-    border: .2rem solid #000;
-    background: gray;
+.button-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-.grid-base {
-    height: 100% !important;
+.sidebar__button {
+    background: #eeeded !important;
 }
+.sidebar__button:hover {
+    background: darken($color: #eeeded, $amount: 15%) !important;
+}
+.sidebar__link {
+    display: block;
+}
+
+
+

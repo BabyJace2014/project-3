@@ -1,7 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Sidebar from '../../components/SideBar';
+import ProfileEdit from '../../components/ProfileEdit';
+import ClubLink from '../../components/ClubLink';
+import CreateClub from '../../components/CreateClub';
 import Navigation from '../../components/Navigation';
 import { Grid } from 'semantic-ui-react';
 import API from '../../utils/API';
@@ -59,24 +61,34 @@ render() {
 
         <div>
             <Navigation display={name} page="profile" />
+                <Grid>
+                    <Grid.Column width={4} padded='true' className='sidebar'>
+                        <h3>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h3>
+                        <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
+                        <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
 
-            <h3>Your Profile Information:</h3>
-            <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
-            <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
+                        <br /><br />
+                        <div className="button-block">
+                            <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} className="sidebar__button" />
+                            <br /><br />
+                            <CreateClub user={this.state.user} onClose={this.onCreateClubClose} className="sidebar__button" />
+                        </div>
+                        <br /><br /><br />
 
-            <br /><br />
-            <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} />
-            <br /><br />
-            <CreateClub user={this.state.user} onClose={this.onCreateClubClose} />
-            <br /><br /><br />
-
-            <h3>Club's You Belong To:</h3>
-            { this.state.clubs.map( club => (
-                <ClubLink onClick={this.viewClub} clubname={club.clubname}>
-                    {club.clubname}
-                </ClubLink>
-            )) }
-
+                        <h4>Club's You Belong To:</h4>
+                        { this.state.clubs.map( club => (
+                            <ul>
+                                <li>
+                                    <ClubLink onClick={this.viewClub} clubname={club.clubname} className='sidebar__link' >
+                                        {club.clubname}
+                                    </ClubLink>
+                                </li>
+                            </ul>
+                        )) }
+                    </Grid.Column>
+                        <Grid.Column width={12} padded='true' className='info-bar'>
+                    </Grid.Column>
+                </Grid>
             </div>
         );
 

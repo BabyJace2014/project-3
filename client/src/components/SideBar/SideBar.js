@@ -7,10 +7,10 @@ import React from 'react';
 const Sidebar = (props) => (
     <div>
             
-        <h2>{props.user.firstname} {props.user.lastname}'s Profile Page</h2>
+        <h3>{props.user.firstname} {props.user.lastname}'s Profile Page</h3>
 
         <br /><br/>
-        <h3>Your Profile Information:</h3>
+        <h4>Your Profile Information:</h4>
         <p>Address:  {props.user.address ? props.user.address : ""}</p>
         <p>Phone: {props.user.phone ? props.user.phone : ""}</p>
 
@@ -20,7 +20,7 @@ const Sidebar = (props) => (
         
         <br /><br /><br />
 
-        <h3>Club's You Belong To:</h3>
+        <h4>Club's You Belong To:</h4>
         
 
     </div>
