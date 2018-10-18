@@ -5,11 +5,17 @@
     padding-left: 2rem !important;
     background: lighten($sub-gray, $amount: 35%);
 }
-.info-bar {
-    height: 100%;
-    border: .2rem solid #000;
-    background: gray;
+.button-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-// .grid-base {
-//     height: 95% !important;
-// }
+.sidebar__button {
+    background: #eeeded !important;
+}
+.sidebar__button:hover {
+    background: darken($color: #eeeded, $amount: 15%) !important;
+}
+
+
+
