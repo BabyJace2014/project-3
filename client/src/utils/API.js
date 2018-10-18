@@ -32,9 +32,15 @@ export default {
     },
 
     // use the GoodReads API to return an array of books that 
-    //   matches the title in query
-    getBookDetails: function ( query ) {
-        return axios.post("/book/info", {query: query});
+    //   matches the title, author or ISBN# in query
+    getBookList: function ( query ) {
+        return axios.get(`/book/list/${query}`);
+    },
+
+    // use the GoodReads API to return details about a book 
+    //   based on its GoodReads ID
+    getBookDetails: function ( bookID ) {
+        return axios.get(`/book/info/${bookID}`);
     }
 
 }

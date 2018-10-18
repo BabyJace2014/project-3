@@ -32,15 +32,15 @@ const club = {  clubname: "RU Somerset Readers",
 
                 books:  [{  title: "JavaScript: The Definitive Guide",
                             cover: "https://images.gr-assets.com/books/1347652925l/148050.jpg",
-                            gr_id: "142879" },
+                            gr_id: "148050" },
 
                         {   title: "What Is Node",
                             cover: "https://images.gr-assets.com/books/1384803722l/18652730.jpg",
-                            gr_id: "17423585" },
+                            gr_id: "18652730" },
 
                         {   title: "Learning React: Functional Web Development with React and Redux",
                             cover: "https://images.gr-assets.com/books/1494421362l/29324861.jpg",
-                            gr_id: "49558043"}
+                            gr_id: "29324861"}
                         ],
 
                 events: [{}]

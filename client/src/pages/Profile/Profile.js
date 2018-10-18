@@ -56,22 +56,27 @@ render() {
         return <Redirect to="/club" />
 
     return (
-            <div>
-                <Navigation display={name} />
-                <Grid className='grid-base'>
-                    <Grid.Column width={4} padded className='sidebar'>
-                        <Sidebar
-                            user={this.state.user} 
-                            clubs={this.state.clubs} 
-                            onProfileEditClose={this.onProfileEditClose}    
-                            onCreateClubClose={this.onCreateClubClose}
-                        />
-                    </Grid.Column>
-                    <Grid.Column width={12}>
-                        <div className="info-bar"></div>
-                    </Grid.Column>
-                </Grid>
-                    
+
+        <div>
+            <Navigation display={name} page="profile" />
+
+            <h3>Your Profile Information:</h3>
+            <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
+            <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
+
+            <br /><br />
+            <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} />
+            <br /><br />
+            <CreateClub user={this.state.user} onClose={this.onCreateClubClose} />
+            <br /><br /><br />
+
+            <h3>Club's You Belong To:</h3>
+            { this.state.clubs.map( club => (
+                <ClubLink onClick={this.viewClub} clubname={club.clubname}>
+                    {club.clubname}
+                </ClubLink>
+            )) }
+
             </div>
         );
 
@@ -91,30 +96,3 @@ Profile.propTypes = {
 }
 
 export default Profile;
-
-
- // 
-               
-
-/**
- * 
-            <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
-
-            <br /><br/>
-            <h3>Your Profile Information:</h3>
-            <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
-            <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
-
-            <br /><br />
-            <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} />
-            <br /><br />
-            <CreateClub user={this.state.user} onClose={this.onCreateClubClose} />
-            <br /><br /><br />
-
-            <h3>Club's You Belong To:</h3>
-            { this.state.clubs.map( club => (
-                <ClubLink onClick={this.viewClub} clubname={club.clubname}>
-                    {club.clubname}
-                </ClubLink>
-            )) }
- */
