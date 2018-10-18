@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ProfileEdit from '../../components/ProfileEdit';
-import CreateClub from '../../components/CreateClub';
+import Sidebar from '../../components/SideBar';
 import Navigation from '../../components/Navigation';
-import ClubLink from '../../components/ClubLink';
+import { Grid } from 'semantic-ui-react';
 import API from '../../utils/API';
+import '../../assets/scss/index.scss';
 
 class Profile extends React.Component {
 
@@ -56,8 +56,48 @@ render() {
         return <Redirect to="/club" />
 
     return (
-        <div>
-            <Navigation display={name} />
+            <div>
+                <Navigation display={name} />
+                <Grid className='grid-base'>
+                    <Grid.Column width={4} padded className='sidebar'>
+                        <Sidebar
+                            user={this.state.user} 
+                            clubs={this.state.clubs} 
+                            onProfileEditClose={this.onProfileEditClose}    
+                            onCreateClubClose={this.onCreateClubClose}
+                        />
+                    </Grid.Column>
+                    <Grid.Column width={12}>
+                        <div className="info-bar"></div>
+                    </Grid.Column>
+                </Grid>
+                    
+            </div>
+        );
+
+    }
+}
+
+Profile.propTypes = {
+    user: PropTypes.shape({
+        firstname:  PropTypes.string.isRequired,
+        lastname: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired
+    }),
+
+    userUpdated: PropTypes.func.isRequired,
+
+    setClub: PropTypes.func.isRequired
+}
+
+export default Profile;
+
+
+ // 
+               
+
+/**
+ * 
             <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
 
             <br /><br/>
@@ -77,23 +117,4 @@ render() {
                     {club.clubname}
                 </ClubLink>
             )) }
-
-        </div>
-        );
-
-    }
-}
-
-Profile.propTypes = {
-    user: PropTypes.shape({
-        firstname:  PropTypes.string.isRequired,
-        lastname: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired
-    }),
-
-    userUpdated: PropTypes.func.isRequired,
-
-    setClub: PropTypes.func.isRequired
-}
-
-export default Profile;
+ */

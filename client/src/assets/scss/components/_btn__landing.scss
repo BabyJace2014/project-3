@@ -1,18 +1,18 @@
 .btn__landing {
-    background: $sand;
-    color: $mud;
-    border: .3rem solid $mud;
-/*    position: absolute; */
-    z-index: 3;
-    font-size: $m-size;
-/*    top: 37rem; */
-/*    left: 50%; */
-    margin-right: auto;
-    margin-left: auto;
-    transform: translateX(-50%);
+    height: 3.5rem !important;
+    width: 8.4rem !important;
+    background: $sand !important;
+    color: $mud !important;
+    border: .15rem solid $mud !important;
+    z-index: 3 !important;
+    font-size: $s-size !important;
+    margin-right: .3rem !important;
+    margin-left: 8.4rem !important;
+    transform: translateX(-50%) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
 }
 .btn__landing:hover {
-    background: lighten($sand, 15%);
-    color: lighten($mud, 15%);
-    border: .2rem solid $mud;
+    background: lighten($sand, 15%) !important;
+    color: lighten($mud, 15%) !important;
 }
