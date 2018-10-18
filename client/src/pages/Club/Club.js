@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navigation from '../../components/Navigation';
+import Navigation from "../../components/Navigation";
+import CreateMeeting from "../../components/CreateMeeting";
 
 class Club extends React.Component {
 
@@ -16,9 +17,10 @@ render() {
 
     return (
         <div>
-            <Navigation display={this.state.club.clubname} page="club" />
-            <h2>Club Page</h2>
+        <Navigation display={this.state.club.clubname} page="club" />
+        <h2>Club Page</h2>
 
+        <br /><br />
             <h3>Club Members:</h3>
             { this.state.club.members.map( member => (
                 <h3>{member.name} (<i>{member.email}</i>)</h3>
@@ -29,6 +31,8 @@ render() {
                 <h3>{book.title}</h3>
             )) }
 
+        <CreateMeeting />
+        
         </div>
         
         );

@@ -22,6 +22,11 @@ export default {
         return axios.post("/club", club);
     },
 
+    // create a new meeting
+    createMeeting: function( club ) {
+        return axios.post("/club/meeting", club);
+    },
+
     // retrieve a list of club names that a user is a member of
     getUserClubs: function ( userEmail ) {
         return axios.get("/club/" + userEmail);
