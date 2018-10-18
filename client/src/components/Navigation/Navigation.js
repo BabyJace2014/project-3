@@ -12,7 +12,7 @@ class Navigation extends Component {
     
     return (
       <Menu size='massive'>
-        <Menu.Item header>APP NAME</Menu.Item>
+        <Menu.Item header>BOOKWORMZ</Menu.Item>
         <Menu.Item
           name={this.props.display}
          />
