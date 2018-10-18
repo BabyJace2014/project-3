@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Slideshow from '../../components/Slideshow';
 import { Image, Button, Modal } from 'semantic-ui-react';
 import Login from '../../components/Login';
 import SignUp from "../../components/SignUp";
@@ -11,20 +12,7 @@ class Landing extends React.Component {
             <div className="content_center">
                 <Image src={require(`../../assets/images/tempTitle.png`)} className="temp-title" />
                 
-                <ul className="slideshow">
-                    <li>
-                        <Image src={require(`../../assets/images/slideshow/1.png`)} className="cvr-img"  />
-                    </li>
-                    <li>
-                        <Image src={require(`../../assets/images/slideshow/2.png`)} className="cvr-img"  />
-                    </li>
-                    <li>
-                        <Image src={require(`../../assets/images/slideshow/3.png`)} className="cvr-img"  />
-                    </li>
-                    <li>
-                        <Image src={require(`../../assets/images/slideshow/4.png`)} className="cvr-img"  />
-                    </li>
-                </ul>
+                <Slideshow />
 
                 <Modal  className="app__modal" trigger={<Button className="btn__landing">Sign In</Button>} >
                     <Modal.Header>Sign In</Modal.Header>

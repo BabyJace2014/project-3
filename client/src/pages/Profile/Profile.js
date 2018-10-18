@@ -6,6 +6,7 @@ import CreateClub from '../../components/CreateClub';
 import Navigation from '../../components/Navigation';
 import ClubLink from '../../components/ClubLink';
 import API from '../../utils/API';
+import '../../assets/scss/index.scss';
 
 class Profile extends React.Component {
 
@@ -57,10 +58,7 @@ render() {
 
     return (
         <div>
-            <Navigation display={name} />
-            <h2>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h2>
-
-            <br /><br/>
+            <Navigation display={name} page="profile" />
             <h3>Your Profile Information:</h3>
             <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
             <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
