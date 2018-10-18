@@ -5,9 +5,6 @@ import ProfileEdit from '../../components/ProfileEdit';
 import ClubLink from '../../components/ClubLink';
 import CreateClub from '../../components/CreateClub';
 import Navigation from '../../components/Navigation';
-import ProfileEdit from '../../components/ProfileEdit';
-import CreateClub from '../../components/CreateClub';
-import ClubLink from '../../components/ClubLink';
 import { Grid } from 'semantic-ui-react';
 import API from '../../utils/API';
 import '../../assets/scss/index.scss';
@@ -66,7 +63,7 @@ render() {
             <Navigation display={name} page="profile" />
                 <Grid>
                     <Grid.Column width={4} padded='true' className='sidebar'>
-                        <h3>{this.state.user.firstname} {this.state.user.lastname}'s Profile Page</h3>
+                        <h3>Profile Page</h3>
                         <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
                         <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
 
