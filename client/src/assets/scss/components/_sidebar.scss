@@ -1,0 +1,15 @@
+
+.sidebar {
+    left: 0;
+    height: 100vh;
+    padding-left: 2rem;
+    background: lighten($sub-gray, $amount: 35%);
+}
+.info-bar {
+    height: 100%;
+    border: .2rem solid #000;
+    background: gray;
+}
+.grid-base {
+    height: 100% !important;
+}

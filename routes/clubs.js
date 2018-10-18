@@ -39,4 +39,31 @@ module.exports = function(app) {
                 console.log(err);
             });
     });
+
+    // POST route /club
+    //  save a new club to the db ... if it doesn't already exist
+    app.post("/club/update", (req, res) => {
+
+    console.log("/club/update for club: " + req.body.clubname );
+    
+        Club.findOneAndUpdate(  { clubname: req.body.clubname},
+
+                                { admin: req.body.admin,
+                                  members: req.body.members,
+                                  books: req.body.books,
+                                  events: req.body.events },
+
+                                { new: true} )
+            .then( function(club) {
+                if ( !club ) {
+                    res.json({error: "Club not found"});
+                } else {
+                    res.json(club);
+                }
+            })
+            .catch( function(err) {
+                res.json({error: err.message});
+            });
+    });
+
 }

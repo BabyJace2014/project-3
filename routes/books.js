@@ -1,5 +1,5 @@
 const express = require('express');
-const dotenv = require("dotenv").config();    // process.env
+const dotenv = require('dotenv').config();    // process.env
 const axios = require('axios');
 const parseString = require('xml2js').parseString;
 
@@ -10,14 +10,13 @@ const parseString = require('xml2js').parseString;
 
 module.exports = function(app) {
 
-    // POST route /book/info
+    // GET route /book/info/:query
     //  use the GoodReads API to get a list of books
-    //  w/ details based on the title user entered
-    app.post("/book/info", (req, res) => {
-        let queryURL = "https://www.goodreads.com/search/index.xml";
-        queryURL += "?key=" + process.env.GOODREADS_KEY;
-        queryURL += "&q=" + req.body.query;
-        
+    //  w/ details based on the title, author or ISBN#
+    app.get("/book/list/:query", (req, res) => {
+        const query = req.params.query
+        let queryURL = `https://www.goodreads.com/search/index.xml?key=${process.env.GOODREADS_KEY}&q=${query}`;
+console.log("/book/list -- " + queryURL);
         axios.get( queryURL )
             .then( function (result) {
                 let books = [];
@@ -41,9 +40,29 @@ module.exports = function(app) {
                     }
                 }); 
             }).catch( function(err) {
-                    console.log(err);
+                console.log(err);
             });
    });
 
+    // GET route /book/info/:id
+    //  use the GoodReads API to get rating/synopsis
+    //  about a book given its Goodreads ID
+    app.get("/book/info/:id", (req, res) => {
+        const bookId = req.params.id;
+        let queryURL = `https://www.goodreads.com/book/show/${bookId}.xml?key=${process.env.GOODREADS_KEY}`;
+console.log("/book/info/:id -- " + queryURL);        
+        axios.get( queryURL )
+            .then( function (result) {
+       
+                var cleanedResult = result.data.toString().replace("\ufeff", "");
 
+                parseString(cleanedResult, function(err, goodreadsResult) {
+                    if ( goodreadsResult ) {
+                        res.json(goodreadsResult);
+                    }
+                });
+            }).catch( function(err) {
+                console.log(err);
+            });
+    });
 }

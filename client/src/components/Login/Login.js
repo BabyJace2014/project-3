@@ -5,6 +5,7 @@ import { Modal, Segment, Form, Button, Message } from 'semantic-ui-react';
 import Validator from 'validator';
 import InlineError from '../InlineError';
 import API from "../../utils/API";
+import seedOurDB from "../../utils/seedDB";
 
 class Login extends React.Component {
 
@@ -27,6 +28,14 @@ class Login extends React.Component {
         e.preventDefault();
         
         const { email } = this.state.data;
+
+        if ( email === "seed@the.db" ) {
+            seedOurDB();
+            this.setState({ data: { email: "",
+                                    password: ""},
+                            errors: {}});
+        }
+
         const errors = this.validate( this.state.data );
         this.setState({ errors });
 
