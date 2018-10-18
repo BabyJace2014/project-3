@@ -1,10 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ProfileEdit from '../../components/ProfileEdit';
-import CreateClub from '../../components/CreateClub';
+import Sidebar from '../../components/SideBar';
 import Navigation from '../../components/Navigation';
-import ClubLink from '../../components/ClubLink';
+import { Grid } from 'semantic-ui-react';
 import API from '../../utils/API';
 import '../../assets/scss/index.scss';
 
@@ -57,8 +56,10 @@ render() {
         return <Redirect to="/club" />
 
     return (
+
         <div>
             <Navigation display={name} page="profile" />
+
             <h3>Your Profile Information:</h3>
             <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
             <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
@@ -76,7 +77,7 @@ render() {
                 </ClubLink>
             )) }
 
-        </div>
+            </div>
         );
 
     }
