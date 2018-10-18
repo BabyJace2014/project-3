@@ -27,6 +27,10 @@ export default {
         return axios.get("/club/" + userEmail);
     },
 
+    updateClub: function( club ) {
+        return axios.post("/club/update", club);
+    },
+
     // use the GoodReads API to return an array of books that 
     //   matches the title in query
     getBookDetails: function ( query ) {
