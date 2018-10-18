@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navigation from "../../components/Navigation";
 import CreateMeeting from "../../components/CreateMeeting";
+import { Grid } from 'semantic-ui-react';
+import '../../assets/scss/index.scss';
 
 class Club extends React.Component {
 
@@ -18,20 +20,25 @@ render() {
     return (
         <div>
         <Navigation display={this.state.club.clubname} page="club" />
-        <h2>Club Page</h2>
 
-        <br /><br />
-            <h3>Club Members:</h3>
-            { this.state.club.members.map( member => (
-                <h3>{member.name} (<i>{member.email}</i>)</h3>
-            )) }
-            <br />
-            <h3>Books Read:</h3>
-            { this.state.club.books.map( book => (
-                <h3>{book.title}</h3>
-            )) }
+        <Grid>
+            <Grid.Column width={4} padded='true' className='sidebar'>
+                <h3>Club Page</h3>
 
-        <CreateMeeting />
+                <br /><br />
+                <h4>Club Members:</h4>
+                { this.state.club.members.map( member => (
+                    <h4>{member.name} (<i>{member.email}</i>)</h4>
+                )) }
+                <br />
+                <h4>Books Read:</h4>
+                { this.state.club.books.map( book => (
+                    <h4>{book.title}</h4>
+                )) }
+                <CreateMeeting className='sidebar__button' />
+            </Grid.Column>
+        </Grid>
+        
         
         </div>
         

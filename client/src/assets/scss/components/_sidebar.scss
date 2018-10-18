@@ -16,6 +16,9 @@
 .sidebar__button:hover {
     background: darken($color: #eeeded, $amount: 15%) !important;
 }
+.sidebar__link {
+    display: block;
+}
 
 
 

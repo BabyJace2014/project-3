@@ -77,12 +77,16 @@ render() {
 
                         <h4>Club's You Belong To:</h4>
                         { this.state.clubs.map( club => (
-                            <ClubLink onClick={this.viewClub} clubname={club.clubname}>
-                                {club.clubname}
-                            </ClubLink>
+                            <ul>
+                                <li>
+                                    <ClubLink onClick={this.viewClub} clubname={club.clubname} className='sidebar__link' >
+                                        {club.clubname}
+                                    </ClubLink>
+                                </li>
+                            </ul>
                         )) }
                     </Grid.Column>
-                    <Grid.Column width={12} padded='true' className='info-bar'>
+                        <Grid.Column width={12} padded='true' className='info-bar'>
                     </Grid.Column>
                 </Grid>
             </div>
