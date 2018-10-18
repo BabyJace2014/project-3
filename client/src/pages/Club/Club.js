@@ -16,8 +16,19 @@ render() {
 
     return (
         <div>
-        <Navigation display={this.state.club.clubname} />
-        <h2>Club Page</h2>
+            <Navigation display={this.state.club.clubname} />
+            <h2>Club Page</h2>
+
+            <h3>Club Members:</h3>
+            { this.state.club.members.map( member => (
+                <h3>{member.name} (<i>{member.email}</i>)</h3>
+            )) }
+            <br />
+            <h3>Books Read:</h3>
+            { this.state.club.books.map( book => (
+                <h3>{book.title}</h3>
+            )) }
+
         </div>
         
         );
