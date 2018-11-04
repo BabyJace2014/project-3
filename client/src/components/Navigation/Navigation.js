@@ -8,16 +8,17 @@ class Navigation extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
-    
+    const { activeItem } = this.state;
+    const isClub = this.props.page.slice(0,4) === "Club" ? true : false;
+        
     return (
       <Menu size='massive'>
         <Menu.Item header>BOOKWORMZ</Menu.Item>
         <Menu.Item
-          name={this.props.display}
+          name={this.props.page}
          />
         <Menu.Menu position='right'>
-        {this.props.page === 'club' ?
+        { isClub ?
           <Menu.Item 
             name='Profile' 
             active={activeItem === 'Profile'}

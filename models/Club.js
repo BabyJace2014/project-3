@@ -5,16 +5,16 @@
 const mongoose = require('mongoose');
 const User = require('./User');
 
-const MemberSchema = new mongoose.Schema({  email:  String,
-                                            name:   String});
+const MemberSchema = new mongoose.Schema({  email:      String,
+                                            name:       String});
 
-const BookSchema = new mongoose.Schema({    title:  String,
-                                            cover:  String,
-                                            gr_id:  String});
-
-const EventSchema = new mongoose.Schema({   date:   Date,
-                                            host:   String,
-                                            book:   String }); // should be gr_id from BookSchema
+const EventSchema = new mongoose.Schema({   name:       String,
+                                            date:       String,
+                                            host:       String,
+                                            location:   String,
+                                            book:       String,
+                                            cover:      String,
+                                            gr_id:      String }); // should be gr_id from BookSchema
 
 const ClubSchema = new mongoose.Schema({
     clubname: { type: String,
@@ -27,8 +27,6 @@ const ClubSchema = new mongoose.Schema({
                 required: true },
 
     members:  [ MemberSchema ],
-
-    books:    [ BookSchema ],
 
     events:   [ EventSchema ]
 
