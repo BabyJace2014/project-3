@@ -52,7 +52,7 @@ viewClub = ( clubname ) => {
 }
 
 render() {
-    const name = `${this.state.user.firstname} ${this.state.user.lastname}`
+    const title = `Profile of ${this.state.user.firstname} ${this.state.user.lastname}`;
 
     if (this.state.toClub)
         return <Redirect to="/club" />
@@ -60,26 +60,26 @@ render() {
     return (
 
         <div>
-            <Navigation display={name} page="profile" />
-                <Grid>
-                    <Grid.Column width={4} padded='true' className='sidebar'>
+            <Navigation page={title} />
 
-                        
+            <Grid>
+                <Grid.Column width={4} padded='true' className='sidebar'>
 
-                        <h3>Profile Page</h3>
+                    <h4>Profile Details:</h4>
 
-                        <p>Address:  {this.state.user.address ? this.state.user.address : ""}</p>
-                        <p>Phone: {this.state.user.phone ? this.state.user.phone : ""}</p>
+                    <h5>{this.state.user.address ? this.state.user.address : ""}</h5>
+                    <h5>{this.state.user.phone ? this.state.user.phone : ""}</h5>
+                    <h5>{this.state.user.email}</h5>
 
-                        <br /><br />
-                        <div className="button-block">
-                            <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} className="sidebar__button" />
-                            <br /><br />
-                            <CreateClub user={this.state.user} onClose={this.onCreateClubClose} className="sidebar__button" />
-                        </div>
-                        <br /><br /><br />
+                    <br /><br />
 
-                        <h4>Club's You Belong To:</h4>
+                    <ProfileEdit user={this.state.user} onClose={this.onProfileEditClose} className="sidebar__button" />
+
+                </Grid.Column>
+
+                <Grid.Column width={12} padded='true' className='info-bar'>
+
+                    <h4>Your Book Clubs:</h4>
                         { this.state.clubs.map( club => (
                             <ul>
                                 <li>
@@ -89,9 +89,13 @@ render() {
                                 </li>
                             </ul>
                         )) }
+
+                    <br /><br />
+                    
+                    <CreateClub user={this.state.user} onClose={this.onCreateClubClose} className="sidebar__button" />
+
                     </Grid.Column>
-                        <Grid.Column width={12} padded='true' className='info-bar'>
-                    </Grid.Column>
+
                 </Grid>
             </div>
         );

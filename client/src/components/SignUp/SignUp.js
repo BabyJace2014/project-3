@@ -92,7 +92,7 @@ class SignUp extends React.Component {
         return (
             <Modal.Content>
                 <Message attached
-                        header='Welcome to our site!'
+                        header='Welcome to Bookwormz!'
                         content='Please fill in the form below to create an account.'
                 />
 

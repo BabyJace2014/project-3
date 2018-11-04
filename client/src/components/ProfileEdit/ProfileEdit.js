@@ -100,11 +100,11 @@ class ProfileEdit extends React.Component {
                 <Grid columns={2} divided>
                     <Grid.Row>
                         <Grid.Column>
-                            <h3>Email:</h3>
+                            <h4>Email:</h4>
                             <p>{user.email}</p>
                         </Grid.Column>
                         <Grid.Column>
-                            <h3>Password:</h3>
+                            <h4>Password:</h4>
                             <p>********</p>
                         </Grid.Column>
                     </Grid.Row>

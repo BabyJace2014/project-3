@@ -40,8 +40,8 @@ module.exports = function(app) {
             });
     });
 
-    // POST route /club
-    //  save a new club to the db ... if it doesn't already exist
+    // POST route /club/update
+    //  update a club in the db
     app.post("/club/update", (req, res) => {
 
     console.log("/club/update for club: " + req.body.clubname );
@@ -50,7 +50,6 @@ module.exports = function(app) {
 
                                 { admin: req.body.admin,
                                   members: req.body.members,
-                                  books: req.body.books,
                                   events: req.body.events },
 
                                 { new: true} )
